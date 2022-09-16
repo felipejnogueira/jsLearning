@@ -48,10 +48,22 @@ h2 {
 body {
   margin: 10px;
   width: 100%;
-  /*background: var(--white);*/
+  background: var(--white);
 }
 
 .featured > li {
   background-color: var(--bgColor);
   color: var(--fontColor);  
+}
+
+div {
+  display: inline-block;
+}
+
+#divMes {
+  width: 20%;
+}
+
+#divTheme {
+  width: 45%;
 }
