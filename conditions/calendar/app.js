@@ -2,18 +2,46 @@
 const mes = document.querySelector('#mes');
 const h1 = document.querySelector('h1');
 const list = document.querySelector('ul');
-
+const theme = document.querySelector('#theme')
 const css = document.querySelector(':root');
-var cssVar = getComputedStyle(css);
+let tema;
 
-console.log(cssVar.getPropertyValue('--bgColor'));
-css.style.setProperty('--bgColor', '--purple');
-css.style.setProperty('--fontColor', '--white');
+function trocaTema() {
+    tema = theme.value;
+
+    switch (tema) {
+        case 'white':
+            css.style.setProperty('--bgColor', 'var(--white)');
+            css.style.setProperty('--fontColor', 'var(--black)');
+            break;
+        case 'black':
+            css.style.setProperty('--bgColor', 'var(--lightBlack)');
+            css.style.setProperty('--fontColor', 'var(--white)');
+            break;
+        case 'purple':
+            css.style.setProperty('--bgColor', 'var(--purple)');
+            css.style.setProperty('--fontColor', 'var(--white)');
+            break;
+        case 'yellow':
+            css.style.setProperty('--bgColor', 'var(--yellow)');
+            css.style.setProperty('--fontColor', 'var(--black)');
+            break;
+        case 'psych':
+            css.style.setProperty('--bgColor', 'var(--purple)');
+            css.style.setProperty('--fontColor', 'var(--lime)');
+            break;
+        default:
+            css.style.setProperty('--bgColor', 'var(--white)');
+            css.style.setProperty('--fontColor', 'var(--black)');            
+    }
+}
+
+theme.addEventListener('change', trocaTema);
 
 mes.addEventListener('change', () => { 
     let choice = mes.value;
     let days = 31;
-    console.log(choice);
+
     if (choice === 'fevereiro'){
         days = 28;
     } else if (choice === "abril" || choice === "junho" || choice === "setembro" || choice === "novembro") {
